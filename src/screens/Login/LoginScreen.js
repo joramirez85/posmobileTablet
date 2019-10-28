@@ -7,52 +7,52 @@ import styles from './Styles'
 import Strings from '../../constants/Strings'
 
 export default class LoginScreen extends Component {
-    constructor(props) {
-        super(props)
-        this.state = {
-            email: '',
-            password: ''
-        }
+  constructor (props) {
+    super(props)
+    this.state = {
+      email: '',
+      password: ''
     }
-    
+  }
+
     handleEmailChange = (email) => {
-        this.setState({
-            email
-        })
+      this.setState({
+        email
+      })
     }
 
     handlePasswordChange = (password) => {
-        this.setState({
-            password
-        })
+      this.setState({
+        password
+      })
     }
 
     handleLoginPress = () => {
-        console.log('Login button pressed')
-        this.props.navigation.navigate('SalesScreen')
+      console.log('Login button pressed')
+      this.props.navigation.navigate('SalesScreen')
     }
 
-    render() {
-        return (
-            <View style={ styles.container }>
-                <Image source={ imageLogo } style={ styles.logo } />
-                <View style={ styles.form }>
-                    <FormTextInput
-                        value={ this.state.email }
-                        onChangeText={ this.handleEmailChange }
-                        placeholder={ Strings.EMAIL_PLACEHOLDER }
-                    />
-                    <FormTextInput
-                        value={ this.state.password }
-                        onChangeText={ this.handlePasswordChange }
-                        placeholder={ Strings.PASSWORD_PLACEHOLDER }
-                    />
-                    <CustomButton
-                        label={ Strings.LOGIN }
-                        onPress={ this.handleLoginPress }
-                    />
-                </View>
-            </View>
-        )
+    render () {
+      return (
+        <View style={styles.container}>
+          <Image source={imageLogo} style={styles.logo} />
+          <View style={styles.form}>
+            <FormTextInput
+              value={this.state.email}
+              onChangeText={this.handleEmailChange}
+              placeholder={Strings.EMAIL_PLACEHOLDER}
+            />
+            <FormTextInput
+              value={this.state.password}
+              onChangeText={this.handlePasswordChange}
+              placeholder={Strings.PASSWORD_PLACEHOLDER}
+            />
+            <CustomButton
+              label={Strings.LOGIN}
+              onPress={this.handleLoginPress}
+            />
+          </View>
+        </View>
+      )
     }
 }

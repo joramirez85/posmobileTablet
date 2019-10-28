@@ -4,7 +4,7 @@ import { createStackNavigator } from 'react-navigation-stack'
 import LoginScreen from './src/screens/Login/LoginScreen'
 import SalesScreen from './src/screens/Sales/SalesScreen'
 
-export default function App() {
+export default function App () {
   return <AppContainer />
 }
 
