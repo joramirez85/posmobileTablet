@@ -1,6 +1,7 @@
 export default {
-  LOGIN: 'Log In',
+  LOGIN: 'Iniciar sesión',
   WELCOME_TO_LOGIN: 'Welcome to the login screen',
   EMAIL_PLACEHOLDER: 'Email',
-  PASSWORD_PLACEHOLDER: 'Password'
+  PASSWORD_PLACEHOLDER: 'Contraseña',
+  PAY: 'Pagar'
 }

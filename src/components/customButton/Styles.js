@@ -11,12 +11,11 @@ const styles = StyleSheet.create({
     paddingVertical: 12,
     borderRadius: 4,
     borderWidth: StyleSheet.hairlineWidth
-    // borderColor:
   },
   text: {
     color: Colors.WHITE,
     textAlign: 'center',
-    height: 20
+    height: 22
   }
 })
 

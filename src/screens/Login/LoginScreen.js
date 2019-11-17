@@ -5,6 +5,7 @@ import FormTextInput from '../../components/formTextInput/FormTextInput'
 import imageLogo from '../../../assets/images/logo.png'
 import styles from './Styles'
 import Strings from '../../constants/Strings'
+import { ScreenOrientation } from 'expo'
 
 export default class LoginScreen extends Component {
   constructor (props) {
@@ -15,26 +16,31 @@ export default class LoginScreen extends Component {
     }
   }
 
-    handleEmailChange = (email) => {
-      this.setState({
-        email
-      })
-    }
+  componentDidMount () {
+    ScreenOrientation.lockAsync(ScreenOrientation.Orientation.LANDSCAPE)
+  }
 
-    handlePasswordChange = (password) => {
-      this.setState({
-        password
-      })
-    }
+  handleEmailChange = (email) => {
+    this.setState({
+      email
+    })
+  }
 
-    handleLoginPress = () => {
-      console.log('Login button pressed')
-      this.props.navigation.navigate('SalesScreen')
-    }
+  handlePasswordChange = (password) => {
+    this.setState({
+      password
+    })
+  }
 
-    render () {
-      return (
-        <View style={styles.container}>
+  handleLoginPress = () => {
+    console.log('Login button pressed')
+    this.props.navigation.navigate('SalesScreen')
+  }
+
+  render () {
+    return (
+      <View style={styles.container}>
+        <View style={styles.containerForm}>
           <Image source={imageLogo} style={styles.logo} />
           <View style={styles.form}>
             <FormTextInput
@@ -53,6 +59,7 @@ export default class LoginScreen extends Component {
             />
           </View>
         </View>
-      )
-    }
+      </View>
+    )
+  }
 }

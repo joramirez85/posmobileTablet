@@ -1,8 +1,19 @@
 import { StyleSheet } from 'react-native'
 
 const styles = StyleSheet.create({
-  productsList: {
-    marginLeft: 10
+  container: {
+    flex: 1,
+    flexDirection:'row'
+  },
+  containerProductsList: {
+    marginLeft: 15,
+    marginRight: 15
+  },
+  containerRightSide: {
+    flex: 1,
+    flexDirection: 'column',
+    marginLeft: 10,
+    marginRight: 10
   }
 })
 
