@@ -7,7 +7,7 @@ const styles = StyleSheet.create({
     marginLeft: 5,
     marginTop: 10,
     height: 44,
-    backgroundColor: '#FF0000'
+    // backgroundColor: '#FF0000'
   },
   modalBtn: {
     width: 42,
@@ -17,7 +17,8 @@ const styles = StyleSheet.create({
     width: 400,
     fontWeight: 'bold',
     fontSize: 18,
-    textAlign: 'center'
+    textAlign: 'center',
+    textAlignVertical: 'center'
   }
 })
 

@@ -12,6 +12,7 @@ const CustomerModal = (props) => {
     <View style={stylesCustomers.container}>
       <ModalHeader />
       <Separator />
+      <View style={stylesCustomers.te}></View>
     </View>
   )
 }

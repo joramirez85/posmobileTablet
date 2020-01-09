@@ -12,57 +12,7 @@ import styles from './Styles'
 import imageTest from '../../../assets/images/Telephone.png'
 import Modal from "react-native-modal"
 import CustomerModal from '../../components/modals/CustomersModal'
-
-const dataSource = [
-  {
-    title: 'Salas',
-    data: [
-      {
-        list: [
-          { name: 'Telefono1', price: '$300', image: imageTest },
-          { name: 'Telefono2', price: '$300', image: imageTest },
-          { name: 'Telefono3', price: '$300', image: imageTest }
-        ]
-      }
-    ]
-  },
-  {
-    title: 'Refrigeradores',
-    data: [
-      {
-        list: [
-          { name: 'Telefono1', price: '$300', image: imageTest },
-          { name: 'Telefono2', price: '$300', image: imageTest },
-          { name: 'Telefono3', price: '$300', image: imageTest }
-        ]
-      }
-    ]
-  },
-  {
-    title: 'Comedores',
-    data: [
-      {
-        list: [
-          { name: 'Telefono1', price: '$300', image: imageTest },
-          { name: 'Telefono2', price: '$300', image: imageTest },
-          { name: 'Telefono3', price: '$300', image: imageTest }
-        ]
-      }
-    ]
-  },
-  {
-    title: 'Ventiladores',
-    data: [
-      {
-        list: [
-          { name: 'Telefono1', price: '$300', image: imageTest },
-          { name: 'Telefono2', price: '$300', image: imageTest },
-          { name: 'Telefono3', price: '$300', image: imageTest }
-        ]
-      }
-    ]
-  }
-]
+import fetchProducts from '../../services/fetchProducts'
 
 const dataSourceCart = [
   { name: 'Telefono1 telephone iphone XS', price: '$300', quantity: 1 },
@@ -73,10 +23,17 @@ const dataSourceCart = [
 export default class SalesScreen extends Component {
   constructor (props) {
     super(props)
+    this.state = {
+      dataSource: []
+    }
   }
 
-  componentDidMount () {
+  async componentDidMount () {
     ScreenOrientation.lockAsync(ScreenOrientation.Orientation.LANDSCAPE)
+    const response = await fetchProducts()
+    this.setState({
+      dataSource: response
+    })
   }
 
   renderSection = ({ item }) => {
@@ -88,7 +45,7 @@ export default class SalesScreen extends Component {
           <ProductItem
             name={itemData.item.name}
             price={itemData.item.price}
-            image={itemData.item.image}
+            image={`http://192.168.1.72:3000/${itemData.item.image}`}
           />
         )}
         keyExtractor={(item) => item.name}
@@ -99,12 +56,12 @@ export default class SalesScreen extends Component {
   render () {
     return (
       <View style={styles.container}>
-        <Modal isVisible={true}>
+        <Modal isVisible={false}>
           <CustomerModal />
         </Modal>
         <View style={styles.containerProductsList}>
           <SectionList
-            sections={dataSource}
+            sections={this.state.dataSource}
             showsVerticalScrollIndicator={false}
             showsHorizontalScrollIndicator={false}
             renderItem={this.renderSection}

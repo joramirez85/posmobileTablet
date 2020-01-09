@@ -20,7 +20,7 @@ const ProductItem = (props) => {
     onPress={() => AddProduct(addProductToCart.bind(this))}
     >
       <View style={styles.containerImg}>
-        <Image source={image} />
+        <Image source={{uri: image}} />
       </View>
       <Text style={styles.productName}>
         {name}
